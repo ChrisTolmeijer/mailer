@@ -2,7 +2,6 @@
 import { get, defaultsDeep } from 'lodash';
 import { Injectable, Inject, Optional } from '@nestjs/common';
 import { SentMessageInfo, Transporter } from 'nodemailer';
-import * as previewEmail from 'preview-email';
 import * as smtpTransport from 'nodemailer/lib/smtp-transport';
 
 /** Constants **/
@@ -35,14 +34,6 @@ export class MailerService {
 
         return templateAdapter.compile(mail, callback, this.mailerOptions);
       });
-
-      if (this.mailerOptions.preview) {
-        transporter.use('stream', (mail, callback) => {
-          return previewEmail(mail.data, this.mailerOptions.preview)
-            .then(() => callback())
-            .catch(callback);
-        });
-      }
     }
   }
 
