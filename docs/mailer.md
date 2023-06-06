@@ -424,51 +424,6 @@ export class ExampleService {
 }
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-## Preview Email
-
-Use preview-email to open a preview of the email with the browser. This can be enabled or disabled.
-
-```ts
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MailerModule } from '@nestjs-modules/mailer';
-import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
-
-@Module({
-  imports: [
-    MailerModule.forRoot({
-      transport: {
-        host: 'localhost',
-        port: 1025,
-        ignoreTLS: true,
-        secure: false,
-        auth: {
-          user: process.env.MAILDEV_INCOMING_USER,
-          pass: process.env.MAILDEV_INCOMING_PASS,
-        },
-      },
-      defaults: {
-        from: '"No Reply" <no-reply@localhost>',
-      },
-      preview: true,
-      template: {
-        dir: process.cwd() + '/template/',
-        adapter: new HandlebarsAdapter(), // or new PugAdapter() or new EjsAdapter()
-        options: {
-          strict: true,
-        },
-      },
-    }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
-})
-export class AppModule {}
-```
-
 ## Copy templates to the dist folder
 
 If you are storing the templates inside of an `src` folder, make sure to add your template files as assets into `nest-cli.json`. Otherwise the templates would not be copied while compilation.
