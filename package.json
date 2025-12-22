@@ -1,6 +1,6 @@
 {
   "name": "@crizit/mailer",
-  "version": "2.0.2-updates.20251222",
+  "version": "2.0.2-updates.20251222-2",
   "private": false,
   "description": "NestJS - a mailer module (@mailer)",
   "keywords": [
