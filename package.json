@@ -65,8 +65,7 @@
     "handlebars": "^4.7.8",
     "mjml": "^5.0.0-alpha.4",
     "pug": "^3.0.2",
-    "liquidjs": "^10.11.1",
-    "preview-email": "^3.0.19"
+    "liquidjs": "^10.11.1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
@@ -87,7 +86,6 @@
     "nodemailer": "6.9.13",
     "nodemailer-mock": "2.0.6",
     "prettier": "3.2.5",
-    "preview-email": "3.0.19",
     "reflect-metadata": "0.2.2",
     "rimraf": "5.0.5",
     "rxjs": "7.8.1",
@@ -109,7 +107,6 @@
     "handlebars": ">=4.7.6",
     "mjml": ">=4.15.3",
     "pug": ">=3.0.1",
-    "liquidjs": ">=10.8.2",
-    "preview-email": ">=3.0.19"
+    "liquidjs": ">=10.8.2"
   }
 }

@@ -34,27 +34,6 @@ export class MailerService {
 
         return templateAdapter.compile(mail, callback, this.mailerOptions);
       });
-
-      let previewEmail;
-
-      try {
-        previewEmail = require('preview-email');
-      } catch (err) {
-        this.mailerLogger.warn('preview-email is not installed. This is an optional dependency. Install it if you want to preview emails in the development environment. You can install it using npm (npm install preview-email), yarn (yarn add preview-email), or pnpm (pnpm add preview-email).');
-      }
-
-    if (this.mailerOptions.preview) {
-      transporter.use('stream', (mail, callback) => {
-        if (typeof previewEmail !== 'undefined') {
-          return previewEmail(mail.data, this.mailerOptions.preview)
-            .then(() => callback())
-            .catch(callback);
-        } else {
-          this.mailerLogger.warn('previewEmail is not available. Skipping preview.');
-          return callback();
-        }
-      });
-    }
     }
   }
 
